@@ -1,0 +1,9 @@
+# COBOL and JCL are column-sensitive: anything past column 72 is not code.
+# Line-ending conversion must never touch these, on any platform.
+*.cpy  text eol=lf
+*.cbl  text eol=lf
+*.cob  text eol=lf
+*.jcl  text eol=lf
+*.py   text eol=lf
+*.md   text eol=lf
+*.json text eol=lf
