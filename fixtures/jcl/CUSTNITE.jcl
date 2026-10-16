@@ -1,0 +1,30 @@
+//CUSTNITE JOB (ACCT1234),'NIGHTLY CUSTOMER',CLASS=A,MSGCLASS=X,
+//             NOTIFY=&SYSUID,REGION=0M
+//*
+//* SYNTHETIC SAMPLE. Not derived from any real system.
+//*
+//* Exercises the cases that break naive JCL parsers: operand
+//* continuation, generation data groups, a passed temporary dataset,
+//* inline SYSIN data, and a conditionally executed step.
+//*
+//STEP010  EXEC PGM=CUSTUPDT
+//STEPLIB  DD DSN=PROD.BATCH.LOADLIB,DISP=SHR
+//CUSTIN   DD DSN=PROD.CUST.MASTER(0),DISP=SHR
+//RPTOUT   DD DSN=PROD.CUST.RPT(+1),DISP=(NEW,CATLG,DELETE),
+//            SPACE=(CYL,(10,5),RLSE),
+//            DCB=(RECFM=FB,LRECL=133,BLKSIZE=27930)
+//CUSTOUT  DD DSN=&&TEMPCUST,DISP=(NEW,PASS,DELETE),
+//            SPACE=(CYL,(5,2))
+//SYSOUT   DD SYSOUT=*
+//SYSIN    DD *
+  RUNMODE=NIGHTLY
+  TRACE=OFF
+/*
+//STEP020  EXEC PGM=CUSTSORT,COND=(0,NE,STEP010)
+//SORTIN   DD DSN=&&TEMPCUST,DISP=(OLD,DELETE)
+//SORTOUT  DD DSN=PROD.CUST.SORTED(+1),DISP=(NEW,CATLG,DELETE),
+//            SPACE=(CYL,(10,5))
+//SYSOUT   DD SYSOUT=*
+//STEP030  EXEC PGM=CUSTRPT
+//RPTIN    DD DSN=PROD.CUST.SORTED(+1),DISP=SHR
+//RPTOUT   DD SYSOUT=A

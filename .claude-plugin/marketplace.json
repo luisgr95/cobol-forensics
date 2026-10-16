@@ -1,0 +1,14 @@
+{
+  "name": "luisgr95",
+  "owner": {
+    "name": "Luis Gallardo",
+    "url": "https://github.com/luisgr95"
+  },
+  "plugins": [
+    {
+      "name": "cobol-forensics",
+      "source": "./",
+      "description": "Recover intent from legacy COBOL: exact copybook byte maps, program inventory and call graphs, and characterization-test fixtures for safe modernization."
+    }
+  ]
+}

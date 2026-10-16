@@ -1,0 +1,22 @@
+{
+  "name": "cobol-forensics",
+  "version": "0.1.0",
+  "description": "Recover intent from legacy COBOL: exact copybook byte maps, program inventory and call graphs, and characterization-test fixtures for safe modernization.",
+  "author": {
+    "name": "Luis Gallardo",
+    "url": "https://luisgr95.com"
+  },
+  "homepage": "https://github.com/luisgr95/cobol-forensics",
+  "repository": "https://github.com/luisgr95/cobol-forensics",
+  "license": "MIT",
+  "keywords": [
+    "cobol",
+    "mainframe",
+    "copybook",
+    "legacy-modernization",
+    "zos",
+    "jcl",
+    "db2",
+    "cics"
+  ]
+}
