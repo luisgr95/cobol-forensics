@@ -149,7 +149,7 @@ def parse(raw: str, path: str = "<memory>") -> Job:
 
 def parse_file(path: str) -> Job:
     with open(path, "r", encoding="utf-8", errors="replace") as handle:
-        return parse(handle.read(), path)
+        return parse(handle.read(), path.replace(os.sep, "/"))
 
 
 #: Extensions treated as JCL.

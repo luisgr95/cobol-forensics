@@ -128,6 +128,12 @@ class TestJclEdges(unittest.TestCase):
         job = jcl.parse("")
         self.assertEqual(job.steps, [])
 
+    def test_stored_path_uses_forward_slashes(self):
+        # Reports are read on GitHub and shared with clients, so a Windows
+        # separator must not leak into them.
+        self.assertNotIn("\\", jcl.parse_file(CUSTNITE).path)
+        self.assertIn("fixtures/jcl/CUSTNITE.jcl", jcl.parse_file(CUSTNITE).path)
+
 
 if __name__ == "__main__":
     unittest.main()

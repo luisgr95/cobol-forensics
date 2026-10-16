@@ -239,7 +239,7 @@ def analyze(raw: str, path: str = "<memory>", source_format: str | None = None) 
 
 def analyze_file(path: str, source_format: str | None = None) -> Program:
     with open(path, "r", encoding="utf-8", errors="replace") as handle:
-        return analyze(handle.read(), path, source_format)
+        return analyze(handle.read(), path.replace(os.sep, "/"), source_format)
 
 
 #: Extensions treated as COBOL compilation units.

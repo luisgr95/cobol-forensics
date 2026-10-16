@@ -230,9 +230,11 @@ def jcl_report(jobs: list[Job]) -> str:
             inputs = ", ".join(f"`{d.dsn}`" for d in step.inputs) or "-"
             outputs = ", ".join(f"`{d.dsn}`" for d in step.outputs) or "-"
             flag = " (conditional)" if step.conditional else ""
+            program = f"`{step.program}`" if step.program else "-"
+            procedure = f"`{step.procedure}`" if step.procedure else "-"
             out.append(
-                f"| `{step.name}`{flag} | `{step.program or ''}` "
-                f"| `{step.procedure or ''}` | {inputs} | {outputs} |"
+                f"| `{step.name}`{flag} | {program} | {procedure} "
+                f"| {inputs} | {outputs} |"
             )
         out.append("")
 

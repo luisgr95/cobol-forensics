@@ -61,7 +61,7 @@ Nothing in this set calls these, so they are started from JCL, CICS or a schedul
 
 ### `CUSTUPDT`
 
-Source: `fixtures/cobol\CUSTUPDT.cbl` (85 code lines)
+Source: `fixtures/cobol/CUSTUPDT.cbl` (85 code lines)
 
 - Static calls: `VALIDATE`, `PAYCALC`
 - Dynamic call variables: `WS-NEXT-PGM`
@@ -76,12 +76,12 @@ Source: `fixtures/cobol\CUSTUPDT.cbl` (85 code lines)
 
 ### `PAYCALC`
 
-Source: `fixtures/cobol\PAYCALC.cbl` (43 code lines)
+Source: `fixtures/cobol/PAYCALC.cbl` (43 code lines)
 
 
 ### `VALIDATE`
 
-Source: `fixtures/cobol\VALIDATE.cbl` (50 code lines)
+Source: `fixtures/cobol/VALIDATE.cbl` (50 code lines)
 
 - Static calls: `ERRLOGR`
 - Dynamic call variables: `WS-EDIT-PGM`
@@ -98,13 +98,13 @@ Source: `fixtures/cobol\VALIDATE.cbl` (50 code lines)
 
 ## CUSTNITE
 
-Source: `fixtures/jcl\CUSTNITE.jcl` -- 3 step(s)
+Source: `fixtures/jcl/CUSTNITE.jcl` -- 3 step(s)
 
 | Step | Program | Procedure | Inputs | Outputs |
 | --- | --- | --- | --- | --- |
-| `STEP010` | `CUSTUPDT` | `` | `PROD.BATCH.LOADLIB`, `PROD.CUST.MASTER(0)` | `PROD.CUST.RPT(+1)`, `&&TEMPCUST` |
-| `STEP020` (conditional) | `CUSTSORT` | `` | `&&TEMPCUST` | `PROD.CUST.SORTED(+1)` |
-| `STEP030` | `CUSTRPT` | `` | `PROD.CUST.SORTED(+1)` | - |
+| `STEP010` | `CUSTUPDT` | - | `PROD.BATCH.LOADLIB`, `PROD.CUST.MASTER(0)` | `PROD.CUST.RPT(+1)`, `&&TEMPCUST` |
+| `STEP020` (conditional) | `CUSTSORT` | - | `&&TEMPCUST` | `PROD.CUST.SORTED(+1)` |
+| `STEP030` | `CUSTRPT` | - | `PROD.CUST.SORTED(+1)` | - |
 
 ### Intra-job lineage
 

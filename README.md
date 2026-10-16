@@ -148,7 +148,7 @@ real system.
 python -m unittest discover -s tests -t .
 ```
 
-127 tests. The storage sizing tests are hand-computed from the IBM Enterprise
+129 tests. The storage sizing tests are hand-computed from the IBM Enterprise
 COBOL rules; the fixtures deliberately include a group `REDEFINES`, COMP-3 at
 both odd and even digit counts, `OCCURS DEPENDING ON`, `SYNCHRONIZED`
 alignment, a `CALL` inside a `DISPLAY` literal, SQL `SELECT` next to

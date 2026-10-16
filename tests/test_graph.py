@@ -147,6 +147,11 @@ class TestAnalyzerRobustness(unittest.TestCase):
         program = graph.analyze("       DISPLAY 'HI'.\n", path="some/dir/ORPHAN.cbl")
         self.assertEqual(program.program_id, "ORPHAN")
 
+    def test_stored_path_uses_forward_slashes(self):
+        program = graph.analyze_file(os.path.join(COBOL, "PAYCALC.cbl"))
+        self.assertNotIn("\\", program.path)
+        self.assertIn("fixtures/cobol/PAYCALC.cbl", program.path)
+
     def test_empty_source_does_not_crash(self):
         program = graph.analyze("", path="EMPTY.cbl")
         self.assertEqual(program.source_lines, 0)
