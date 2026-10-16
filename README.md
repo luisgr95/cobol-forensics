@@ -104,6 +104,9 @@ And a fixture, byte-exact, in EBCDIC, as the program would read it:
 `27 0F` is the binary region code at 79. Those are the bytes, not a
 description of them.
 
+See [`examples/sample-report.md`](examples/sample-report.md) for the full
+inventory and JCL reports these fixtures produce, call graph included.
+
 ## What it will not tell you
 
 Named up front, because a tool that hides its limits is worse than no tool.
